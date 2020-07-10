@@ -27,7 +27,7 @@ Route::get('/login', function () {
 });
 
 //template register
-Route::get('/register', function () {
+Route::get('/register2', function () {
     return view('register');
 });
 
@@ -43,3 +43,9 @@ Route::get('/form', function () {
 
 Route::get('/feed', 'QuestionController@index');
 Route::get('/question/{id}', 'QuestionController@show');
+//CRUD Question
+
+Auth::routes();
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/home', 'HomeController@index')->name('home');
+});
