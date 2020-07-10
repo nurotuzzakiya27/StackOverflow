@@ -40,3 +40,6 @@ Route::get('/table', function () {
 Route::get('/form', function () {
     return view('form');
 });
+
+Route::get('/feed', 'QuestionController@index');
+Route::get('/question/{id}', 'QuestionController@show');
